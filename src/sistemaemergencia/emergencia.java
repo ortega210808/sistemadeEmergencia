@@ -26,22 +26,22 @@ public class emergencia extends JFrame {
         this.setResizable(false); //NI MAXIMIZAR NI MINIMIZAR 
         this.setSize(new Dimension(800, 800)); //TAMAÑO DE 500,300
         this.setMinimumSize(new Dimension(800, 800)); //TAMAÑO MÍNIMO DE 500,300
-        this.getContentPane().setBackground(Color.WHITE);
+        this.getContentPane().setBackground(Color.GRAY);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void emergencias() {
-        back = new ImageIcon("back.png");
+        back = new ImageIcon("back1.png");
         volver = new JButton(back);
-        im1 = new ImageIcon("emergenciaEcologica.jpg");
+        im1 = new ImageIcon("incendio.jpg");
         et1 = new JLabel(im1);
         eEco = new JLabel("Emergencia Ecológica");
 
-        eEco.setBounds(40, 330, 350, 40);
+        eEco.setBounds(50, 300, 350, 40);
         eEco.setFont(new Font("Colonna MT", Font.BOLD, 25));
-        eEco.setForeground(Color.BLACK);
+        eEco.setForeground(Color.WHITE);
 
         volver.setBounds(10, 720, 40, 40);
         volver.setContentAreaFilled(false);

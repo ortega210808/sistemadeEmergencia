@@ -37,7 +37,7 @@ public class reanimacion extends JFrame {
     public void componentes() {
         call = new ImageIcon("llamar.png");
         llamar = new JButton(call);
-        back = new ImageIcon("back.png");
+        back = new ImageIcon("back1.png");
         volver = new JButton(back);
         conf = new ImageIcon("confirmar.png");
         emergenciaAtendida = new JButton(conf);
