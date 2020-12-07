@@ -35,11 +35,11 @@ public class reanimacion extends JFrame {
     }
 
     public void componentes() {
-        call = new ImageIcon("llamar.png");
+        call = new ImageIcon("gifs\\llamar.png");
         llamar = new JButton(call);
-        back = new ImageIcon("back1.png");
+        back = new ImageIcon("gifs\\back1.png");
         volver = new JButton(back);
-        conf = new ImageIcon("confirmar.png");
+        conf = new ImageIcon("gifs\\confirmar.png");
         emergenciaAtendida = new JButton(conf);
         texto = new JLabel("/// 1. Coloque la base de una mano en el esternón, justo entre los pezones. ///");
         texto1 = new JLabel("/// 2. Coloque la base de la otra mano sobre la primera mano. ///");
@@ -52,7 +52,7 @@ public class reanimacion extends JFrame {
         texto3.setFont(new Font("Colonna MT", Font.BOLD, 25));
 
         imagen = new JLabel();
-        etiqueta = new ImageIcon("reanimacion.gif");
+        etiqueta = new ImageIcon("gifs\\reanimacion.gif");
 
         texto.setBounds(40, 450, 900, 40);
         texto1.setBounds(40, 500, 900, 40);

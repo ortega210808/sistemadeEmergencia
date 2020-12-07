@@ -12,7 +12,7 @@ public class emergencia extends JFrame {
 
     JLabel et1, et2, et3, et4;
     ImageIcon im1, im2, im3, im4, back;
-    JLabel eEco;
+    JLabel eEco, sismo, sismo1;
     JButton volver;
 
     public emergencia() {
@@ -33,25 +33,35 @@ public class emergencia extends JFrame {
     }
 
     public void emergencias() {
-        back = new ImageIcon("back1.png");
+        back = new ImageIcon("gifs\\back1.png");
         volver = new JButton(back);
-        im1 = new ImageIcon("incendio.jpg");
+        im1 = new ImageIcon("gifs\\incendio.jpg");
         et1 = new JLabel(im1);
-        eEco = new JLabel("Emergencia Ecológica");
+        eEco = new JLabel("INCENDIO");
+        im2 = new ImageIcon("gifs\\sismo.png");
+        sismo = new JLabel(im2);
+        sismo1 = new JLabel("SISMO");
 
-        eEco.setBounds(50, 300, 350, 40);
+        eEco.setBounds(120, 300, 350, 40);
         eEco.setFont(new Font("Colonna MT", Font.BOLD, 25));
         eEco.setForeground(Color.WHITE);
+        
+        sismo1.setBounds(570, 300, 350, 40);
+        sismo1.setFont(new Font("Colonna MT", Font.BOLD, 25));
+        sismo1.setForeground(Color.WHITE);
 
         volver.setBounds(10, 720, 40, 40);
         volver.setContentAreaFilled(false);
         volver.setBorder(null);
 
         et1.setBounds(30, 30, 300, 300);
+        sismo.setBounds(450, 20, 300, 300);
 
         this.add(et1);
         this.add(eEco);
         this.add(volver);
+        this.add(sismo);
+        this.add(sismo1);
 
     }
 
@@ -59,7 +69,7 @@ public class emergencia extends JFrame {
         MouseListener ecolo = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                emergenciaEcologica ecolo = new emergenciaEcologica();
+                incendio ecolo = new incendio();
                 dispose();
                 ecolo.setVisible(true);
             }

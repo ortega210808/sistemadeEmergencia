@@ -49,7 +49,7 @@ public class SistemaEmergencia extends JFrame {
         codigoA = new JTextField();
         opc = new JComboBox();
         aceptar = new JButton();
-        cruz = new ImageIcon("cruz-roja.png");
+        cruz = new ImageIcon("gifs\\cruz-roja.png"); // DOS DIAGONALES INVERTIDAS ES PARA ESPECIFICAR LA RUTA DE LA IMAGEN
         opc.addItem("01 Reanimación");
         opc.addItem("02 Emergencia");
         /*opc.addItem("03 Urgencia");
@@ -85,19 +85,7 @@ public class SistemaEmergencia extends JFrame {
                     em.setVisible(true);
                     dispose();
 
-                } else if (opc.getSelectedIndex() == 2) {
-                    urgencia ur = new urgencia();
-                    ur.setVisible(true);
-                    dispose();
-                } else if (opc.getSelectedIndex() == 3) {
-                    urgenciaMenor uM = new urgenciaMenor();
-                    uM.setVisible(true);
-                    dispose();
-                } else if (opc.getSelectedIndex() == 4) {
-                    noUrgente nU = new noUrgente();
-                    nU.setVisible(true);
-                    dispose();
-                }
+                } 
 
             }
         };
