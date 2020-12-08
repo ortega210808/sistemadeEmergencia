@@ -22,6 +22,7 @@ public class SistemaEmergencia extends JFrame {
         textos();
         opcionesEmergencia();
         siguiente();
+        //comentario nuevo
     }
 
     public void frame() {
