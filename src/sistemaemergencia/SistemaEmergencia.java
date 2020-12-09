@@ -12,7 +12,7 @@ public class SistemaEmergencia extends JFrame {
 
     JLabel sistema;
     JComboBox opc;
-    JButton aceptar;
+    JButton aceptar, consulta;
     ImageIcon cruz;
     JTextField codigoA;
 
@@ -47,6 +47,8 @@ public class SistemaEmergencia extends JFrame {
     }
 
     public void opcionesEmergencia() {
+        consulta = new JButton("Consulta");
+
         codigoA = new JTextField();
         opc = new JComboBox();
         aceptar = new JButton();
@@ -58,6 +60,8 @@ public class SistemaEmergencia extends JFrame {
                   opc.addItem("05 No Urgente");*/
         opc.setBounds(270, 100, 240, 40);
 
+        consulta.setBounds(440, 280, 100, 35);
+
         codigoA.setBounds(20, 100, 240, 40);
 
         aceptar.setText("CONFIRMAR");
@@ -68,6 +72,7 @@ public class SistemaEmergencia extends JFrame {
         this.add(opc);
         this.add(aceptar);
         this.add(codigoA);
+        this.add(consulta);
 
     }
 
@@ -86,17 +91,30 @@ public class SistemaEmergencia extends JFrame {
                     em.setVisible(true);
                     dispose();
 
-                } 
+                }
 
             }
         };
+        ActionListener con=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                consulta cons=new consulta();
+                cons.setVisible(true);
+                dispose();
+            }
+        };
         aceptar.addActionListener(acp);
+        consulta.addActionListener(con);
 
     }
 
     public static void main(String[] args) {
+        conector con = new conector();
+        con.connect();
+        //con.close();
         SistemaEmergencia sistema = new SistemaEmergencia();
         sistema.setVisible(true);
+
     }
 
 }
