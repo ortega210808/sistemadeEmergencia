@@ -21,7 +21,7 @@ public class incendio extends JFrame {
     }
 
     public void frame() {
-        this.setTitle("EMERGENCIA");
+        this.setTitle("INCENDIO");
         this.setResizable(false); //NI MAXIMIZAR NI MINIMIZAR 
         this.setSize(new Dimension(400, 400)); //TAMAÑO DE 500,300
         this.setMinimumSize(new Dimension(400, 400)); //TAMAÑO MÍNIMO DE 500,300
