@@ -4,27 +4,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- *
- * @author 80023
- */
-public class incendio extends JFrame {
+public class inundaciones extends JFrame {
 
-    ImageIcon incen, llamar, atras;
-    JLabel fire, call, back;
+    ImageIcon inun, llamar, atras;
+    JLabel agua, call, back;
     JButton instrucciones;
 
-    public incendio() {
+    public inundaciones() {
         frame();
         componentes();
         acciones();
+
     }
 
     public void frame() {
-        this.setTitle("INCENDIO");
+        this.setTitle("SISMO");
         this.setResizable(false); //NI MAXIMIZAR NI MINIMIZAR 
-        this.setSize(new Dimension(400, 400)); //TAMAÑO DE 500,300
-        this.setMinimumSize(new Dimension(400, 400)); //TAMAÑO MÍNIMO DE 500,300
+        this.setSize(new Dimension(700, 600)); //TAMAÑO DE 500,300
+        this.setMinimumSize(new Dimension(700, 600)); //TAMAÑO MÍNIMO DE 500,300
         this.getContentPane().setBackground(Color.WHITE);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
@@ -32,19 +29,19 @@ public class incendio extends JFrame {
     }
 
     public void componentes() {
-        incen = new ImageIcon("gifs\\bomberosGif.gif");
-        fire = new JLabel(incen);
+        inun = new ImageIcon("gifs\\inundacion2.png");
+        agua = new JLabel(inun);
         llamar = new ImageIcon("gifs\\llamar.png");
         call = new JLabel(llamar);
         instrucciones = new JButton("Instrucciones");
         atras = new ImageIcon("gifs\\back1.png");
         back = new JLabel(atras);
-        fire.setBounds(80, 30, 300, 300);
+        agua.setBounds(140, 30, 450, 450);
         call.setBounds(10, 10, 50, 50);
-        instrucciones.setBounds(110, 250, 140, 30);
-        back.setBounds(3, 310, 50, 50);
+        instrucciones.setBounds(300, 450, 140, 30);
+        back.setBounds(10, 500, 50, 50);
 
-        this.add(fire);
+        this.add(agua);
         this.add(call);
         this.add(instrucciones);
         this.add(back);
@@ -83,13 +80,12 @@ public class incendio extends JFrame {
         ActionListener ins = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "1. Tener un plan de Evacuación."
-                        + "\n 2. Indicar las salidas de emergencia."
-                        + "\n 3. Ubicar extintores en áreas de alto riesgo."
-                        + "\n 4. Tener a la mano los números de emergencia necesarios.");
+                JOptionPane.showMessageDialog(null, "1. Tenga un plan de evacuación y establezca una ruta para el mismo."
+                        + "\n 2. No entre a ninguna aula si ya esta cubierto de agua en la plantta baja."
+                        + "\n 3. No consuma ningún alimento que pudiera haber estado en contacto con las aguas de la inundación ya que pudieran estar contaminadas."
+                        + "\n 4. Esté alerta a peligros de fuego como conductos o tuberías de gas expuestos o rotos, circuitos eléctricos que estén mojados y por tanto hacen contacto, o materiales peligrosos que hayan sido arrastrados por las aguas");
             }
         };
         instrucciones.addActionListener(ins);
-
     }
 }

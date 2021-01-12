@@ -8,7 +8,7 @@ public class HL extends JFrame {
 
     JButton Reg;
     JLabel HEI;
-    ImageIcon CA;
+    ImageIcon CA, back;
 
     public HL() {
 
@@ -30,12 +30,14 @@ public class HL extends JFrame {
     }
 
     private void componentes1() {
-        Reg = new JButton("Regresar");
+        back = new ImageIcon("gifs\\back.png");
+        Reg = new JButton(back);
         Reg.setFont(new Font("Arial", Font.ITALIC, 12));
         Reg.setBounds(195, 300, 120, 30);
         CA = new ImageIcon("gifs\\priaux\\CA.png");
         HEI = new JLabel(CA);
-
+        Reg.setContentAreaFilled(false);
+        Reg.setBorder(null);
         HEI.setBounds(15, 50, 465, 225);
 
         this.add(Reg);

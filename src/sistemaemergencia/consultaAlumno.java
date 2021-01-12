@@ -27,6 +27,7 @@ public class consultaAlumno extends JFrame {
     public consultaAlumno() {
         frame();
         contenido();
+        bloquearCampos();
         consultaAlumno();
         regresar();
         limpiar();
@@ -146,11 +147,32 @@ public class consultaAlumno extends JFrame {
                     } catch (Exception x) {
                         System.err.println("Error en la consulta\n" + x.getMessage());
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, "El dato no existe en la base de datos");
                 }
 
             }
         };
-        Ok.addActionListener(consulta);;
+        Ok.addActionListener(consulta);
+    }
+
+    public void borrarDato() {
+        ActionListener borrar = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                conexion();
+                ResultSet result = null;
+                if (matr.getText().equals("191090001")) {
+                    try {
+                        PreparedStatement stam = cone.prepareStatement("Delete * from matricula=191090001");
+                        result = stam.executeQuery();
+
+                    } catch (Exception x) {
+                        System.err.println("Error en la consulta\n" + x.getMessage());
+                    }
+                }
+            }
+        };
     }
 
     public void limpiar() {
@@ -167,6 +189,14 @@ public class consultaAlumno extends JFrame {
         };
 
         limpiar.addActionListener(limp);
+    }
+
+    public void bloquearCampos() {
+        nom1.setEnabled(false);
+        ap1.setEnabled(false);
+        tel1.setEnabled(false);
+        dir1.setEnabled(false);
+        num_s1.setEnabled(false);
     }
 
     public void regresar() {

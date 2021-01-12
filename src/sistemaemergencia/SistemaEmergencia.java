@@ -9,13 +9,13 @@ import java.awt.event.*;
  * @author ADRIANA,YAIR,CESAR,FRANCISCO
  */
 public class SistemaEmergencia extends JFrame {
-    
+
     JLabel sistema;
     JComboBox opc;
     JButton aceptar, consulta, PriAux;
     ImageIcon cruz, imgCon, imgPri;
     JTextField codigoA;
-    
+
     public SistemaEmergencia() {
         super();
         frame();
@@ -23,7 +23,7 @@ public class SistemaEmergencia extends JFrame {
         opcionesEmergencia();
         siguiente();
     }
-    
+
     public void frame() {
         this.setTitle("EMERGENCIA");
         this.setResizable(false); //NI MAXIMIZAR NI MINIMIZAR 
@@ -34,23 +34,23 @@ public class SistemaEmergencia extends JFrame {
         this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
     public void textos() {
         sistema = new JLabel();
-        
+
         sistema.setText("SISTEMA DE EMERGENCIA");
         sistema.setForeground(Color.BLACK);
         sistema.setFont(new Font("Colonna MT", Font.BOLD, 30));
         sistema.setBounds(75, 40, 400, 50);
         this.add(sistema);
     }
-    
+
     public void opcionesEmergencia() {
         consulta = new JButton();
         PriAux = new JButton();
         imgCon = new ImageIcon("gifs\\llamada.png");
         imgPri = new ImageIcon("gifs\\llamada-de-emergencia.png");
-        
+
         codigoA = new JTextField();
         opc = new JComboBox();
         aceptar = new JButton();
@@ -62,34 +62,34 @@ public class SistemaEmergencia extends JFrame {
                   opc.addItem("04 Urgencia Menor");
                   opc.addItem("05 No Urgente");*/
         opc.setBounds(270, 100, 240, 40);
-        
+
         consulta.setBounds(490, 280, 40, 40);
         consulta.setIcon(imgCon);
         consulta.setContentAreaFilled(false);
         consulta.setBorder(null);
         consulta.setToolTipText("Funciones de administrador");
-        
+
         codigoA.setBounds(20, 100, 240, 40);
-        
+
         aceptar.setText("CONFIRMAR");
         aceptar.setFont(new Font("Bookman Old Style", Font.BOLD, 12));
         aceptar.setIcon(cruz);
         aceptar.setBounds(165, 200, 180, 35);
-        
+
         PriAux.setBounds(10, 280, 40, 40);
         PriAux.setIcon(imgPri);
         PriAux.setContentAreaFilled(false);
         PriAux.setBorder(null);
         PriAux.setToolTipText("Capacitación de emergencia");
-        
+
         this.add(opc);
         this.add(aceptar);
         this.add(codigoA);
         this.add(consulta);
         this.add(PriAux);
-        
+
     }
-    
+
     public void siguiente() {
         ActionListener acp = new ActionListener() {
             @Override
@@ -104,9 +104,9 @@ public class SistemaEmergencia extends JFrame {
                     emergencia em = new emergencia();
                     em.setVisible(true);
                     dispose();
-                    
+
                 }
-                
+
             }
         };
         ActionListener con = new ActionListener() {
@@ -115,9 +115,10 @@ public class SistemaEmergencia extends JFrame {
                 opciones op = new opciones();
                 op.setVisible(true);
                 dispose();
-                
+
             }
         };
+
         ActionListener pri = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -130,23 +131,23 @@ public class SistemaEmergencia extends JFrame {
                     SistemaEmergencia sis = new SistemaEmergencia();
                     sis.setVisible(true);
                     dispose();
-                    
+
                 } else {
                     System.out.println("Cancelado");
                 }
-                
+
             }
         };
         aceptar.addActionListener(acp);
         consulta.addActionListener(con);
         PriAux.addActionListener(pri);
-        
+
     }
-    
+
     public static void main(String[] args) {
         SistemaEmergencia sistema = new SistemaEmergencia();
         sistema.setVisible(true);
-        
+
     }
-    
+
 }

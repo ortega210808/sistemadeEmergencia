@@ -8,7 +8,7 @@ public class RCP extends JFrame {
 
     JButton Reg;
     JLabel RECP;
-    ImageIcon rcp;
+    ImageIcon rcp, back;
 
     public RCP() {
 
@@ -30,7 +30,10 @@ public class RCP extends JFrame {
     }
 
     private void componentes1() {
-        Reg = new JButton("Regresar");
+        back = new ImageIcon("gifs\\back.png");
+        Reg = new JButton(back);
+        Reg.setContentAreaFilled(false);
+        Reg.setBorder(null);
         Reg.setFont(new Font("Arial", Font.ITALIC, 12));
         Reg.setBounds(240, 280, 120, 30);
 

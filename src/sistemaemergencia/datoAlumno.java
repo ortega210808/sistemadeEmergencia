@@ -12,36 +12,22 @@ import java.sql.ResultSetMetaData;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class consultaAdmin extends JFrame {
+public class datoAlumno extends JFrame {
 
     //BASE DE DATOS//
     String url = "bd\\BDEmergencia"; //url de base de datos
     Connection cone;
     //
+
     JLabel id, nom, ap, dir, tel, num_s;
     JTextField nom1, ap1, dir1, tel1, num_s1, matr;
     JButton Ok, limpiar, h;
     ImageIcon home;
 
-    public consultaAdmin() {
+    public datoAlumno() {
         frame();
         contenido();
-        bloquearCampos();
-        consultaAd();
         regresar();
-        limpiar();
-    }
-
-    public void frame() {
-        this.setTitle("Consulta");
-        this.setResizable(false);
-        this.setSize(new Dimension(400, 400));
-        this.setMinimumSize(new Dimension(400, 400));
-        this.getContentPane().setBackground(Color.WHITE);
-        this.setLocationRelativeTo(null);
-        this.setLayout(null);
-        this.pack();
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void conexion() {
@@ -55,13 +41,25 @@ public class consultaAdmin extends JFrame {
         }
     }
 
-    public void contenido() {
+    public void frame() {
+        this.setTitle("Insertar nuevo Dato");
+        this.setResizable(false);
+        this.setSize(new Dimension(400, 400));
+        this.setMinimumSize(new Dimension(400, 400));
+        this.getContentPane().setBackground(Color.WHITE);
+        this.setLocationRelativeTo(null);
+        this.setLayout(null);
+        this.pack();
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 
+    public void contenido() {
         home = new ImageIcon("gifs\\back.png");
         h = new JButton(home);
         h.setBounds(10, 320, 40, 40);
         h.setContentAreaFilled(false);
         h.setBorder(null);
+
         matr = new JTextField("");
         Ok = new JButton("Consulta");
         limpiar = new JButton("Limpiar");
@@ -116,59 +114,6 @@ public class consultaAdmin extends JFrame {
 
     }
 
-    public void consultaAd() {
-        ActionListener consulta = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                ResultSet result = null; //LINEA QUE HARÁ LA CONSULTA
-                if (matr.getText().equals("191090010")) {
-                    try {
-                        conexion();
-                        PreparedStatement st = cone.prepareStatement("select * from administrativos where matricula=191090010");
-                        PreparedStatement st1 = cone.prepareStatement("select * from contacto where idContacto=2");
-                        PreparedStatement st2 = cone.prepareStatement("select * from historialClinico where idHistorial=2");
-                        result = st.executeQuery();
-                        while (result.next()) {
-                            matr.setText(result.getString("matricula"));
-                            nom1.setText(result.getString("nombre"));
-                            ap1.setText(result.getString("apellido"));
-                            dir1.setText(result.getString("direccion"));
-                        }
-                        result = st1.executeQuery();
-                        while (result.next()) {
-                            tel1.setText(result.getString("telefono"));
-                        }
-                        result = st2.executeQuery();
-                        while (result.next()) {
-                            num_s1.setText(result.getString("numerodeSeguro"));
-                        }
-                    } catch (Exception x) {
-                        System.err.println("Error en la consulta\n" + x.getMessage());
-                    }
-                }
-
-            }
-        };
-        Ok.addActionListener(consulta);;
-    }
-
-    public void limpiar() {
-        ActionListener limp = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                matr.setText("");
-                nom1.setText("");
-                ap1.setText("");
-                dir1.setText("");
-                tel1.setText("");
-                num_s1.setText("");
-            }
-        };
-
-        limpiar.addActionListener(limp);
-    }
-
     public void regresar() {
         ActionListener ho = new ActionListener() {
             @Override
@@ -179,13 +124,5 @@ public class consultaAdmin extends JFrame {
             }
         };
         h.addActionListener(ho);
-    }
-
-    public void bloquearCampos() {
-        nom1.setEnabled(false);
-        ap1.setEnabled(false);
-        tel1.setEnabled(false);
-        dir1.setEnabled(false);
-        num_s1.setEnabled(false);
     }
 }

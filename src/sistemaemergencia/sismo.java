@@ -4,27 +4,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/**
- *
- * @author 80023
- */
-public class incendio extends JFrame {
+public class sismo extends JFrame {
 
-    ImageIcon incen, llamar, atras;
-    JLabel fire, call, back;
+    ImageIcon sismo, llamar, atras;
+    JLabel temblor, call, back;
     JButton instrucciones;
 
-    public incendio() {
+    public sismo() {
         frame();
         componentes();
         acciones();
     }
 
     public void frame() {
-        this.setTitle("INCENDIO");
+        this.setTitle("SISMO");
         this.setResizable(false); //NI MAXIMIZAR NI MINIMIZAR 
-        this.setSize(new Dimension(400, 400)); //TAMAÑO DE 500,300
-        this.setMinimumSize(new Dimension(400, 400)); //TAMAÑO MÍNIMO DE 500,300
+        this.setSize(new Dimension(700, 600)); //TAMAÑO DE 500,300
+        this.setMinimumSize(new Dimension(700, 600)); //TAMAÑO MÍNIMO DE 500,300
         this.getContentPane().setBackground(Color.WHITE);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
@@ -32,26 +28,26 @@ public class incendio extends JFrame {
     }
 
     public void componentes() {
-        incen = new ImageIcon("gifs\\bomberosGif.gif");
-        fire = new JLabel(incen);
+        sismo = new ImageIcon("gifs\\sismo.jpg");
+        temblor = new JLabel(sismo);
         llamar = new ImageIcon("gifs\\llamar.png");
         call = new JLabel(llamar);
         instrucciones = new JButton("Instrucciones");
         atras = new ImageIcon("gifs\\back1.png");
         back = new JLabel(atras);
-        fire.setBounds(80, 30, 300, 300);
+        temblor.setBounds(140, 30, 450, 450);
         call.setBounds(10, 10, 50, 50);
-        instrucciones.setBounds(110, 250, 140, 30);
-        back.setBounds(3, 310, 50, 50);
+        instrucciones.setBounds(300, 450, 140, 30);
+        back.setBounds(10, 500, 50, 50);
 
-        this.add(fire);
+        this.add(temblor);
         this.add(call);
         this.add(instrucciones);
         this.add(back);
     }
 
     public void acciones() {
-        MouseListener ecolo = new MouseListener() {
+        MouseListener regre = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 emergencia emer = new emergencia();
@@ -79,14 +75,15 @@ public class incendio extends JFrame {
 
             }
         };
-        back.addMouseListener(ecolo);
+        back.addMouseListener(regre);
         ActionListener ins = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "1. Tener un plan de Evacuación."
-                        + "\n 2. Indicar las salidas de emergencia."
-                        + "\n 3. Ubicar extintores en áreas de alto riesgo."
-                        + "\n 4. Tener a la mano los números de emergencia necesarios.");
+                JOptionPane.showMessageDialog(null, "1. Identificar las zonas de seguridad."
+                        + "\n 2. Mantenerse alejado de las ventanas."
+                        + "\n 3. Permanecer lejos de los libreros o muebles que pudieran caerse."
+                        + "\n 4. Esperar a que el personal brigadista dentro de la escuela haga una revisión de las instalaciones."
+                        + "\n 5. No correr, no empujar y no gritar.");
             }
         };
         instrucciones.addActionListener(ins);
